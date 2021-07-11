@@ -1,6 +1,16 @@
 from django.contrib import admin
 # из файла models импортируем модель Post
-from .models import Post
+from .models import Post, Group
+
+
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ("pk", "title", "slug", "description")
+    search_fields = ("title",)
+    list_filter = ("description",)
+    empty_value_display = "-пусто-"
+
+
+admin.site.register(Group, GroupAdmin)
 
 
 class PostAdmin(admin.ModelAdmin):
