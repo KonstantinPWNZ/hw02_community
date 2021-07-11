@@ -3,8 +3,8 @@ from .models import Post, Group
 
 
 def index(request):
-    latest = Post.objects.all().order_by("-pub_date")[:11] 
-    return render(request, "index.html", {"posts": latest}) 
+    latest = Post.objects.all().order_by("-pub_date")[:11]
+    return render(request, "index.html", {"posts": latest})
 
 
 def group_posts(request, slug):
